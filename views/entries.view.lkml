@@ -16,7 +16,7 @@ view: entries {
   dimension_group: event_time {
     type: time
     datatype: datetime
-    timeframes: [date,month,quarter,day_of_week,day_of_month]
+    timeframes: [date,month,month_name,quarter,day_of_week,day_of_month]
     sql: ${TABLE}.event_time  ;;
    # sql:STR_TO_DATE(${TABLE}.event_time,'%Y%m%d %h%i%s') ;;
   }
