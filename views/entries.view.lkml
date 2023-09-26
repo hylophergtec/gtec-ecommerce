@@ -13,9 +13,12 @@ view: entries {
     type: string
     sql: ${TABLE}.category_id ;;
   }
-  dimension: event_time {
-    type: string
-    sql: ${TABLE}.event_time ;;
+  dimension_group: event_time {
+    type: time
+    datatype: datetime
+    timeframes: [date,month,quarter,day_of_week,day_of_month]
+    sql: ${TABLE}.event_time  ;;
+   # sql:STR_TO_DATE(${TABLE}.event_time,'%Y%m%d %h%i%s') ;;
   }
   dimension: event_type {
     type: string
@@ -37,6 +40,7 @@ view: entries {
     type: string
     sql: ${TABLE}.user_session ;;
   }
+
   measure: count {
     type: count
   }
