@@ -25,7 +25,8 @@ view: entries {
     sql: ${TABLE}.event_type ;;
   }
   dimension: price {
-    type: string
+    type: number
+    value_format: "$0.00"
     sql: ${TABLE}.price ;;
   }
   dimension: product_id {
@@ -40,7 +41,10 @@ view: entries {
     type: string
     sql: ${TABLE}.user_session ;;
   }
-
+dimension: segmentacion_precios {
+  type: string
+  sql: if(${price}<=5,"Precio bajo", if(${price}>5 AND ${price}<=10, "Precio medio", "Precio elevado")) ;;
+}
   measure: count {
     type: count
   }
