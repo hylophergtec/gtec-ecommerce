@@ -45,6 +45,10 @@ dimension: segmentacion_precios {
   type: string
   sql: if(${price}<=5,"Precio bajo", if(${price}>5 AND ${price}<=10, "Precio medio", "Precio elevado")) ;;
 }
+dimension: regions {
+  type: zipcode
+  sql: if(${price}<=5,99301,if(${price}>5 AND ${price}<=10,01040,43964)) ;;
+}
   measure: count {
     type: count
   }
