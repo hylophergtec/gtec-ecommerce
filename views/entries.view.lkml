@@ -48,6 +48,7 @@ dimension: segmentacion_precios {
 dimension: regions {
   type: zipcode
   sql: if(${price}<=5,99301,if(${price}>5 AND ${price}<=10,01040,43964)) ;;
+  #lineas de codigo
 }
   measure: count {
     type: count
